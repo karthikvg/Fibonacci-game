@@ -4,6 +4,7 @@
 #pragma warning(disable:4996)
 game* copyContent(game* board)
 {
+	/*This function is used to copy the content of given board and returns that copy*/
 	game* temp=(game*)malloc(sizeof(game));
 	int n=board->n;
 	temp->n = n;
@@ -18,6 +19,7 @@ game* copyContent(game* board)
 }
 void printer(game* board)
 {
+	/*prints the current state of the board*/
 	int n = board->n;
 	for (int i = 0; i < n; i++)
 	{
@@ -30,6 +32,7 @@ void printer(game* board)
 }
 void preview(game* board)
 {
+	/*used to direct the user to see the preview of the board*/
 	system("cls");
 	printf("LEFT:\n");
 	game* temp = copyContent(board);

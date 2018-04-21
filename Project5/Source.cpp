@@ -4,6 +4,7 @@
 #pragma warning(disable:4996)
 void playGame()
 {
+	/*this function givens an option to choose the board dimensions*/
 	char ch;
 	while (true)
 	{
@@ -27,6 +28,7 @@ void playGame()
 }
 void rePlay()
 {
+	/*reloads the last saved game*/
 	system("cls");
 	reload();
 	//loadGame();
@@ -34,6 +36,7 @@ void rePlay()
 }
 void LeaderBoard()
 {
+	/*displays the leader board by calling showLeaderBoard*/
 	system("cls");
 	//getchar();
 	showLeaderBoard();
@@ -41,6 +44,7 @@ void LeaderBoard()
 }
 int main()
 {
+	/*initial page on the console*/
 	while (1)
 	{
 		char ch;

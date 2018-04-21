@@ -6,6 +6,7 @@ game stacks[700];
 int n = 0;
 void copyUp(game* board)
 {
+	/* records the history of the board upto 700 moves*/
 	int n = board->counter;
 	stacks[n].counter = board->counter;
 	stacks[n].n = board->n;

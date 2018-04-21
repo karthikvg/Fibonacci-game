@@ -10,6 +10,7 @@ struct players
 };
 void save(game* user)
 {
+	/*saves the current user data and board to savedGame.txt*/
 	FILE* fp = fopen("savedGame.txt", "w+");
 	int n = user->n;
 	fprintf(fp,"%d\n", user->n);
@@ -24,18 +25,21 @@ void save(game* user)
 }
 void writeIntoFile(game* user)
 {
+	/*writes the name n,n count to leaderboard.txt*/
 	FILE* fp = fopen("LeaderBoard.txt", "a+");
 	fprintf(fp,"\n%s %dX%d %d", user->name, user->n, user->n, user->counter);
 	fclose(fp);
 }
 void swapCounter(int* counter1,int* counter2)
 {
+	/*swaps counters of users used for sorting*/
 	int temp = *counter1;
 	*counter1 = *counter2;
 	*counter2 = temp;
 }
 void swapStrings(char* size1,char* size2)
 {
+	/*swaps the names of players used for sorting*/
 	char temp[100];
 	int i;
 	for (i = 0; size1[i]; i++)
@@ -56,6 +60,7 @@ void swapStrings(char* size1,char* size2)
 }
 void showLeaderBoard()
 {
+	/*displays the leaderboard*/
 	printf("here it is\n");
 	FILE* fp = fopen("LeaderBoard.txt", "r");
 	char name[100][100], boardSize[100][30];

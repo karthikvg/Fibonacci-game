@@ -4,6 +4,8 @@
 #pragma warning(disable:4996)
 game* readPrevData()
 {
+	/*reads the previous data to game* temp and returns it 
+	  and in case of any errors it will return NULL*/
 	game* temp = (game*)malloc(sizeof(game));
 	FILE* fp = fopen("savedGame.txt", "r");
 	int n;
@@ -26,6 +28,7 @@ game* readPrevData()
 }
 bool isFibonacci(int x)
 {
+	/*verifies if the given input is fibonacci or not*/
 	int fibonacci[] = {
 		0, 1, 1, 2, 3, 5, 8, 13,
 		21, 34, 55, 89, 144,
@@ -45,8 +48,10 @@ bool isFibonacci(int x)
 }
 bool verifying(game* board)
 {
+	/* This function is used to check if the saved game is in standard form or not*/
 	if (board == NULL||board->n>4||board->n<2||board->n==3||board->counter<0||board->name==NULL)
 		return false;
+
 	int n = board->n;
 	for(int i = 0; i < n; i++)
 	{
@@ -58,14 +63,18 @@ bool verifying(game* board)
 			}
 		}
 	}
+
 	return true;
 }
 void reload()
 {
+	/*This method is called when user wishes to continue the last saved game*/
+
 	game* board = readPrevData();
 	if (board == NULL || !verifying(board))
-	{
+	{	
+		//if the game is not saved then it should generate error
 		printf("error no saved game found or someone changed the content in the file ;)\n");
 	}
-	play(board);
+	play(board);//continue the game play
 }
